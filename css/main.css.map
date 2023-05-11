@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../sass/base/_base.scss"],"names":[],"mappings":"AAAA;AAAA;AAAA;EAGI;EACA;EACA;;;AAIJ;EACI;;;AAGJ;EACI","file":"main.css"}
+{"version":3,"sourceRoot":"","sources":["../sass/base/_base.scss","../sass/components/_score-board.scss","../sass/components/_player.scss","../sass/abstracts/_variables.scss"],"names":[],"mappings":"AAAA;AAAA;AAAA;EAGE;EACA;EACA;;;AAGF;EACE;;;AAGF;EACE;;;ACbF;EACE;EACA;EACA;EACA;;AAEA;EACE;;AAGF;EACE;;AAGF;EACE;;;ACLF;EACE,kBCRY;;ADWd;EACE,kBCXc","file":"main.css"}

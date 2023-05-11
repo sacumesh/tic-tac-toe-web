@@ -1,0 +1,18 @@
+.player {
+  &__header {
+  }
+
+  &__name {
+  }
+
+  &__score {
+  }
+
+  &--one {
+    background-color: $color-crimson;
+  }
+
+  &--two {
+    background-color: $color-dark_blue;
+  }
+}

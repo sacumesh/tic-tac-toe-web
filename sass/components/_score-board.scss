@@ -1,0 +1,18 @@
+.score-board {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  align-items: center;
+
+  &__header {
+    font-size: 2rem;
+  }
+
+  &__content {
+    display: flex;
+  }
+
+  &__item {
+    background: red;
+  }
+}
