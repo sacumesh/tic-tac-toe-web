@@ -1,18 +1,16 @@
 .score-board {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+  border: 1px solid $color-black;
   align-items: center;
 
   &__header {
-    font-size: 2rem;
+    font-size: 3rem;
+    font-weight: 900;
   }
 
   &__content {
     display: flex;
-  }
-
-  &__item {
-    background: red;
+    column-gap: 12px;
   }
 }

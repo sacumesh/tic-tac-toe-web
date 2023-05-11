@@ -1,3 +1,4 @@
+/*colors*/
 *,
 *::after,
 *::before {
@@ -12,29 +13,78 @@ html {
 
 body {
   box-sizing: border-box;
+  font-size: 1.6rem;
 }
 
 .score-board {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+  border: 1px solid #000;
   align-items: center;
 }
 .score-board__header {
-  font-size: 2rem;
+  font-size: 3rem;
+  font-weight: 900;
 }
 .score-board__content {
   display: flex;
-}
-.score-board__item {
-  background: red;
+  column-gap: 12px;
 }
 
+.player {
+  transition: 0.3s;
+  border-radius: 5px;
+  padding: 8px;
+}
+.player__header {
+  text-align: center;
+  font-size: 2rem;
+}
+.player__name {
+  text-align: end;
+}
+.player__score {
+  text-align: center;
+  font-weight: 700;
+  font-size: 3rem;
+}
+.player__symbol {
+  font-weight: 800;
+}
 .player--one {
-  background-color: #dc143c;
+  background-color: #333;
+  color: #fff;
 }
 .player--two {
-  background-color: DarkBlue;
+  background-color: #f4edef;
+}
+
+.game-board {
+  padding: 10px;
+  background-color: #ff6282;
+  border-radius: 5px;
+}
+.game-board__cell-container {
+  display: grid;
+  width: 500px;
+  height: 500px;
+  background-color: #fcb7c5;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 10px;
+  column-gap: 10px;
+}
+
+.game-board-btn {
+  font-size: 10rem;
+  background-color: #ff6282;
+  border: none;
+  color: #fff;
+  font-family: "Shantell Sans", cursive;
+}
+
+.page-content {
+  display: flex;
 }
 
 /*# sourceMappingURL=main.css.map */

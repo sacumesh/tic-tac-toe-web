@@ -1,0 +1,17 @@
+.game-board {
+  padding: 10px;
+  background-color: $color-brink_pink;
+  border-radius: 5px;
+
+  &__cell-container {
+    display: grid;
+    width: 500px;
+    height: 500px;
+    background-color: $color-chery_blossom;
+
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 10px;
+    column-gap: 10px;
+  }
+}

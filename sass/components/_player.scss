@@ -1,18 +1,33 @@
 .player {
+  transition: 0.3s;
+  border-radius: 5px;
+  padding: 8px;
+
   &__header {
+    text-align: center;
+    font-size: 2rem;
   }
 
   &__name {
+    text-align: end;
   }
 
   &__score {
+    text-align: center;
+    font-weight: 700;
+    font-size: 3rem;
+  }
+
+  &__symbol {
+    font-weight: 800;
   }
 
   &--one {
-    background-color: $color-crimson;
+    background-color: $color-dune;
+    color: $color-white;
   }
 
   &--two {
-    background-color: $color-dark_blue;
+    background-color: $color-soft_peach;
   }
 }

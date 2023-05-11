@@ -4,3 +4,8 @@
 
 @import "components/score-board";
 @import "components/player";
+@import "components/game-board";
+@import "components/game-board-button";
+.page-content {
+  display: flex;
+}
