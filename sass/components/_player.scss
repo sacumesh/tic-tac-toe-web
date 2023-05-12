@@ -20,14 +20,14 @@
 
   &__symbol {
     font-weight: 800;
+    font-family: "Shantell Sans", cursive;
   }
 
   &--one {
-    background-color: $color-dune;
     color: $color-white;
   }
 
   &--two {
-    background-color: $color-soft_peach;
+    color: $color-black;
   }
 }

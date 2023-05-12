@@ -6,6 +6,13 @@
 @import "components/player";
 @import "components/game-board";
 @import "components/game-board-button";
+
+body {
+  background: $color-brink_pink;
+}
+
 .page-content {
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }

@@ -15,48 +15,46 @@
   </head>
   <body>
     <main class="page-content">
+      <div class="game-board">
+        <div class="game-board__cell-container">
+          <button
+            id="game-board__btn-0"
+            class="game-board-btn game-board-btn--black-font"
+          >
+            X
+          </button>
+          <button id="game-board-btn-1" class="game-board-btn">O</button>
+          <button id="game-board-btn-2" class="game-board-btn">X</button>
+          <button id="game-board__btn-3" class="game-board-btn">3</button>
+          <button id="game-board__btn-4" class="game-board-btn">4</button>
+          <button id="game-board__btn-4" class="game-board-btn">5</button>
+          <button id="game-board__btn-5" class="game-board-btn">6</button>
+          <button id="game-board__btn-6" class="game-board-btn">7</button>
+          <button id="game-board__btn-7" class="game-board-btn">8</button>
+        </div>
+      </div>
       <div class="score-board">
-        <header class="score-board__header">Score Board</header>
         <div class="score-board__content">
           <div class="score-board__item">
             <div class="player player--one">
               <div class="player__header">
-                Player <span class="player__symbol">X</span>
+                Sachiththa A (<span class="player__symbol">X</span>)
               </div>
               <div class="player__score">0</div>
-              <div class="player__name">Sachiththa</div>
             </div>
           </div>
 
           <div class="score-board__item">
             <div class="player player--two">
               <div class="player__header">
-                Player <span class="player__symbol">O</span>
+                Sachiththa B (<span class="player__symbol">O</span>)
               </div>
               <div class="player__score">10</div>
-              <div class="player__name">A</div>
             </div>
           </div>
         </div>
       </div>
-      <div>
-        <div class="game-board">
-          <div class="game-board__cell-container">
-            <button id="game-board__btn-0" class="game-board-btn">X</button>
-            <button id="game-board-btn-1" class="game-board-btn">O</button>
-            <button id="game-board-btn-2" class="game-board-btn">X</button>
-            <button id="game-board__btn-3" class="game-board-btn">3</button>
-            <button id="game-board__btn-4" class="game-board-btn">4</button>
-            <button id="game-board__btn-4" class="game-board-btn">5</button>
-            <button id="game-board__btn-5" class="game-board-btn">6</button>
-            <button id="game-board__btn-6" class="game-board-btn">7</button>
-            <button id="game-board__btn-7" class="game-board-btn">8</button>
-          </div>
-        </div>
-      </div>
-      <div>
-        <button>Restart Game</button>
-      </div>
+      <button>Restart Game</button>
     </main>
   </body>
 </html>
