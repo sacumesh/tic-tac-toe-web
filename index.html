@@ -18,19 +18,50 @@
       <div class="game-board">
         <div class="game-board__cell-container">
           <button
-            id="game-board__btn-0"
-            class="game-board-btn game-board-btn--black-font"
-          >
-            X
-          </button>
-          <button id="game-board-btn-1" class="game-board-btn">O</button>
-          <button id="game-board-btn-2" class="game-board-btn">X</button>
-          <button id="game-board__btn-3" class="game-board-btn">3</button>
-          <button id="game-board__btn-4" class="game-board-btn">4</button>
-          <button id="game-board__btn-4" class="game-board-btn">5</button>
-          <button id="game-board__btn-5" class="game-board-btn">6</button>
-          <button id="game-board__btn-6" class="game-board-btn">7</button>
-          <button id="game-board__btn-7" class="game-board-btn">8</button>
+            class="game-board-btn"
+            data-board-move="0"
+            onclick="onBoardBtnClick(this)"
+          ></button>
+          <button
+            class="game-board-btn"
+            data-board-move="1"
+            onclick="onBoardBtnClick(this)"
+          ></button>
+          <button
+            class="game-board-btn"
+            data-board-move="2"
+            onclick="onBoardBtnClick(this)"
+          ></button>
+          <button
+            class="game-board-btn"
+            data-board-move="3"
+            onclick="onBoardBtnClick(this)"
+          ></button>
+          <button
+            class="game-board-btn"
+            data-board-move="4"
+            onclick="onBoardBtnClick(this)"
+          ></button>
+          <button
+            class="game-board-btn"
+            data-board-move="5"
+            onclick="onBoardBtnClick(this)"
+          ></button>
+          <button
+            class="game-board-btn"
+            data-board-move="6"
+            onclick="onBoardBtnClick(this)"
+          ></button>
+          <button
+            class="game-board-btn"
+            data-board-move="7"
+            onclick="onBoardBtnClick(this)"
+          ></button>
+          <button
+            class="game-board-btn"
+            data-board-move="8"
+            onclick="onBoardBtnClick(this)"
+          ></button>
         </div>
       </div>
       <div class="score-board">
@@ -57,4 +88,5 @@
       <button>Restart Game</button>
     </main>
   </body>
+  <script src="main.js"></script>
 </html>
