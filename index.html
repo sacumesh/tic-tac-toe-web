@@ -67,25 +67,39 @@
       <div class="score-board">
         <div class="score-board__content">
           <div class="score-board__item">
-            <div class="player player--one">
+            <div class="player player--human">
               <div class="player__header">
                 Sachiththa A (<span class="player__symbol">X</span>)
               </div>
-              <div class="player__score">0</div>
+              <div class="player__score player__score--human">0</div>
             </div>
           </div>
 
           <div class="score-board__item">
-            <div class="player player--two">
+            <div class="player player--computer">
               <div class="player__header">
-                Sachiththa B (<span class="player__symbol">O</span>)
+                Computer (<span class="player__symbol">O</span>)
               </div>
-              <div class="player__score">10</div>
+              <div class="player__score player__score--computer">10</div>
             </div>
           </div>
         </div>
       </div>
       <button>Restart Game</button>
+
+      <form id="scoreForm">
+        <label for="playeName">Player Name:</label>
+        <input type="text" id="playerName" required /><br /><br />
+
+        <label for="difficulty">Difficulty:</label>
+        <select id="difficulty" required>
+          <option value="">Select Difficulty</option>
+          <option value="easy">Easy</option>
+          <option value="hard">Hard</option></select
+        ><br /><br />
+
+        <button type="submit">Submit</button>
+      </form>
     </main>
   </body>
   <script src="main.js"></script>

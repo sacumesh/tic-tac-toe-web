@@ -1,38 +1,80 @@
 const board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-const players = ["player1", "player2"];
 const difficulty = ["easy", "hard"];
-const playerSymbol = {
-  player1: "X",
-  player2: "O",
-};
-let btns = document.querySelectorAll(".game-board-btn");
-let player = "player1";
+const scores = [0, 0];
 
-function test(btns, move, player) {
-  let element = btns[move];
-  element.textContent = playerSymbol[player];
+const btnElts = document.querySelectorAll(".game-board-btn");
+const playerScoreElt = document.querySelector(".player__score--computer");
+const computeScoreElt = document.querySelector(".player__score--computer");
+console.log(playerElt);
+console.log(computerElt);
+
+function getSymbol(player) {
+  return player == "computer" ? "O" : "X";
 }
 
-function getMove(player, board, difficulty) {
-  if (player === "player2") {
-    return Promise.resolve(getBestMove(board, player));
+function updateBtns(btns, move, player) {
+  let element = btns[move];
+  element.textContent = getSymbol(player);
+}
+
+function getComputerMove(board, difficulty) {
+  if (difficulty === "easy") {
+    return getEasyComputerMove(board);
   }
 
-  return waitForBoardBtnClick();
+  return getHardComputerMove(board);
 }
 
-function updateBoard(move, player, board) {
-  board[move] = playerSymbol[player];
-}
-
-function switchPlayer(players, player) {
-  currentPlayerIndex = players.indexOf(player);
-  nextPlayerIndex = (currentPlayerIndex + 1) % players.length;
-  return players[nextPlayerIndex];
+function updateBoard(move, board, player) {
+  board[move] = getSymbol(player);
 }
 
 function gameOver(board) {
   return checkTie(board) || checkTie(board);
+}
+
+function getEasyComputerMove(board) {
+  let emptyFields = [];
+  for (let i = 0; i < 9; i++) {
+    if (board[i] != "X" && board[i] != "O") {
+      emptyFields.push(i);
+    }
+  }
+
+  if (emptyFields.length === 0) {
+    console.log("Match is Tie!!");
+  }
+
+  return emptyFields[Math.floor(Math.random() * emptyFields.length)];
+}
+
+function getHardComputerMove(board) {
+  for (let i = 0; i < 9; i++) {
+    if (["X", "O"].indexOf(board[i]) < 0) {
+      const newBoard = structuredClone(board);
+      newBoard[i] = "X";
+      if (checkWin(newBoard)) return i;
+    }
+  }
+
+  for (let i = 0; i < 9; i++) {
+    if (["X", "O"].indexOf(board[i]) < 0) {
+      const newBoard = structuredClone(board);
+      newBoard[i] = "O";
+      if (checkWin(newBoard)) return i;
+    }
+  }
+
+  return getEasyComputerMove(board);
+}
+
+function checkTie(board) {
+  const x = board.filter((cell) => cell === "X").length;
+  const o = board.filter((cell) => cell === "O").length;
+  if (x + o === 9) {
+    return true;
+  }
+  return false;
 }
 
 function checkWin(board) {
@@ -69,67 +111,31 @@ function checkWin(board) {
   return false;
 }
 
-function getBestMove(board, player) {
-  for (let i = 0; i < 9; i++) {
-    if (["X", "O"].indexOf(board[i]) < 0) {
-      const newBoard = structuredClone(board);
-      newBoard[i] = playerSymbol[(player.indexOf(player) + 1) % players.length];
-      if (checkWin(newBoard)) return i;
-    }
-  }
-
-  for (let i = 0; i < 9; i++) {
-    if (["X", "O"].indexOf(board[i]) < 0) {
-      const newBoard = structuredClone(board);
-      newBoard[i] = playerSymbol[player];
-      if (checkWin(newBoard)) return i;
-    }
-  }
-
-  return getComputerMove(board);
+function updateScore(player, scores) {
+  player == "computer" ? scores[1]++ : scores[0]++;
 }
 
-function checkTie(board) {
-  const x = board.filter((cell) => cell === "X").length;
-  const o = board.filter((cell) => cell === "O").length;
-  if (x + o === 9) {
-    return true;
-  }
-  return false;
-}
+function onRestarBtnClick() {}
 
-function getComputerMove(board) {
-  let emptyFields = [];
-  for (let i = 0; i < 9; i++) {
-    if (board[i] != "X" && board[i] != "O") {
-      emptyFields.push(i);
-    }
+function onBoardBtnClick(el) {
+  let player = "player";
+  let move = el.getAttribute("data-board-move");
+
+  if (["X", "O"].indexOf(board[move]) >= 0) {
+    return;
   }
 
-  if (emptyFields.length === 0) {
-    console.log("Match is Tie!!");
+  updateBoard(move, board, player);
+  updateBtns(btnElts, move, player);
+  if (checkWin(board)) {
+    updateScore(player);
   }
 
-  return emptyFields[Math.floor(Math.random() * emptyFields.length)];
-}
-
-function waitForBoardBtnClick() {
-  return new Promise((resolve, reject) => {
-    window.onBoardBtnClick = (element) => {
-      resolve(element.getAttribute("data-board-move"));
-    };
-  });
-}
-
-async function main() {
-  for (let i = 1; i < 10; i++) {
-    console.log(board);
-    let move = await getMove(player, board, "");
-    updateBoard(move, player, board);
-    test(btns, move, player);
-    player = switchPlayer(players, player);
-    console.log(board);
+  player = "computer";
+  move = getComputerMove(board, "");
+  updateBoard(move, board, player);
+  updateBtns(btnElts, move, player);
+  if (checkWin(board)) {
+    updateScore(player);
   }
 }
-
-main();
