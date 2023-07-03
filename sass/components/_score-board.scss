@@ -1,0 +1,20 @@
+.score-board {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  position: relative;
+
+  &__header {
+    font-size: 3rem;
+    font-weight: 900;
+  }
+
+  &__content {
+    display: flex;
+    column-gap: 12px;
+    width: 100%;
+    justify-content: space-between;
+  }
+}

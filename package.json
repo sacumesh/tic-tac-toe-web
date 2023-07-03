@@ -1,0 +1,15 @@
+{
+  "name": "tic-tac-toe-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "sass --no-source-map --watch 'main.scss:css/main.css' 'pages/game.page/game.page.scss:css/game.page.css'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.62.1"
+  }
+}

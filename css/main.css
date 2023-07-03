@@ -1,0 +1,76 @@
+/*colors*/
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+}
+
+body {
+  box-sizing: border-box;
+  font-size: 1.6rem;
+  height: 100%;
+}
+
+.player-form {
+  border: 1px solid #000;
+  padding: 16px;
+  border-radius: 5px;
+}
+.player-form__label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.player-form__input {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.player-form__btn {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.player-form__btn--close {
+  background: #000;
+}
+.player-form__btn--submit {
+  background-color: #ff6282;
+}
+.player-form__group {
+  margin-bottom: 15px;
+}
+.player-form__btns {
+  display: flex;
+  justify-content: center;
+  column-gap: 16px;
+}
+
+.page-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 100px;
+  row-gap: 100px;
+  width: 100vw;
+}
+
+.page-header {
+  font-family: "Shantell Sans", cursive;
+  font-size: 6rem;
+}

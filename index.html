@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main class="page-content">
+      <h1 class="page-header">Tic-Tac-Toe</h1>
+      <form class="player-form" onsubmit="handleFormSubmit(event)">
+        <label for="playerName" class="player-form__label">Player Name:</label>
+        <input
+          type="text"
+          id="playerName"
+          class="player-form__input"
+          required
+        />
+
+        <div class="player-form__group">
+          <label class="player-form__label">Difficulty:</label>
+          <label>
+            <input
+              type="radio"
+              name="difficulty"
+              value="easy"
+              class="player-form__radio"
+              required
+            />
+            Easy
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="difficulty"
+              value="hard"
+              class="player-form__radio"
+              required
+            />
+            Hard
+          </label>
+        </div>
+        <div class="player-form__btns">
+          <button
+            type="submit"
+            class="player-form__btn player-form__btn--submit"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </main>
+  </body>
+  <script src="main.js"></script>
+</html>

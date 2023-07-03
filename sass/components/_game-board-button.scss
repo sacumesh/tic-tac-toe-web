@@ -1,0 +1,11 @@
+.game-board-btn {
+  font-size: 10rem;
+  background-color: $color-white;
+  border: none;
+  color: $color-black;
+  font-family: "Shantell Sans", cursive;
+
+  &--black-font {
+    color: $color-black;
+  }
+}

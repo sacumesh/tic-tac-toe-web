@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/game.page.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main class="page-content">
+      <div class="game-board">
+        <div class="game-board__cell-container">
+          <button
+            class="game-board-btn"
+            data-board-move="0"
+            onclick="onBoardBtnClick(this)"
+          ></button>
+          <button
+            class="game-board-btn"
+            data-board-move="1"
+            onclick="onBoardBtnClick(this)"
+          ></button>
+          <button
+            class="game-board-btn"
+            data-board-move="2"
+            onclick="onBoardBtnClick(this)"
+          ></button>
+          <button
+            class="game-board-btn"
+            data-board-move="3"
+            onclick="onBoardBtnClick(this)"
+          ></button>
+          <button
+            class="game-board-btn"
+            data-board-move="4"
+            onclick="onBoardBtnClick(this)"
+          ></button>
+          <button
+            class="game-board-btn"
+            data-board-move="5"
+            onclick="onBoardBtnClick(this)"
+          ></button>
+          <button
+            class="game-board-btn"
+            data-board-move="6"
+            onclick="onBoardBtnClick(this)"
+          ></button>
+          <button
+            class="game-board-btn"
+            data-board-move="7"
+            onclick="onBoardBtnClick(this)"
+          ></button>
+          <button
+            class="game-board-btn"
+            data-board-move="8"
+            onclick="onBoardBtnClick(this)"
+          ></button>
+        </div>
+
+        <div class="score-board">
+          <button class="reset-btn" onclick="onNewGameBtnClick()">
+            New game
+          </button>
+          <div class="score-board__content">
+            <div class="score-board__item">
+              <div class="player player--human">
+                <div class="player__header">
+                  <span id="player-name">Sachiththa A </span> (<span
+                    class="player__symbol"
+                    >X</span
+                  >)
+                </div>
+                <div class="player__score player__score--human">0</div>
+              </div>
+            </div>
+
+            <div class="score-board__item">
+              <div class="player player--computer">
+                <div class="player__header">
+                  Computer (<span class="player__symbol">O</span>)
+                </div>
+                <div class="player__score player__score--computer">10</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="game.page.js"></script>
+</html>
