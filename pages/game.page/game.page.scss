@@ -1,0 +1,38 @@
+@import "../../sass/abstracts/variables";
+
+@import "../../sass/base/base";
+
+@import "../../sass/components/score-board";
+@import "../../sass/components/player";
+@import "../../sass/components/game-board";
+@import "../../sass/components/game-board-button";
+@import "../../sass/components/player-form";
+
+body {
+  background: $color-brink_pink;
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.reset-btn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: fit-content;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+  padding: 10px 20px;
+  color: $color-white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  background: $color-black;
+}

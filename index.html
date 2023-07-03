@@ -15,90 +15,53 @@
   </head>
   <body>
     <main class="page-content">
-      <div class="game-board">
-        <div class="game-board__cell-container">
-          <button
-            class="game-board-btn"
-            data-board-move="0"
-            onclick="onBoardBtnClick(this)"
-          ></button>
-          <button
-            class="game-board-btn"
-            data-board-move="1"
-            onclick="onBoardBtnClick(this)"
-          ></button>
-          <button
-            class="game-board-btn"
-            data-board-move="2"
-            onclick="onBoardBtnClick(this)"
-          ></button>
-          <button
-            class="game-board-btn"
-            data-board-move="3"
-            onclick="onBoardBtnClick(this)"
-          ></button>
-          <button
-            class="game-board-btn"
-            data-board-move="4"
-            onclick="onBoardBtnClick(this)"
-          ></button>
-          <button
-            class="game-board-btn"
-            data-board-move="5"
-            onclick="onBoardBtnClick(this)"
-          ></button>
-          <button
-            class="game-board-btn"
-            data-board-move="6"
-            onclick="onBoardBtnClick(this)"
-          ></button>
-          <button
-            class="game-board-btn"
-            data-board-move="7"
-            onclick="onBoardBtnClick(this)"
-          ></button>
-          <button
-            class="game-board-btn"
-            data-board-move="8"
-            onclick="onBoardBtnClick(this)"
-          ></button>
+      <h1 class="page-header">Tic-Tac-Toe</h1>
+      <form class="player-form" onsubmit="handleFormSubmit(event)">
+        <label for="playerName" class="player-form__label">Player Name:</label>
+        <input
+          type="text"
+          id="playerName"
+          class="player-form__input"
+          required
+        />
+
+        <div class="player-form__group">
+          <label class="player-form__label">Difficulty:</label>
+          <label>
+            <input
+              type="radio"
+              name="difficulty"
+              value="easy"
+              class="player-form__radio"
+              required
+            />
+            Easy
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="difficulty"
+              value="hard"
+              class="player-form__radio"
+              required
+            />
+            Hard
+          </label>
         </div>
-      </div>
-      <div class="score-board">
-        <div class="score-board__content">
-          <div class="score-board__item">
-            <div class="player player--human">
-              <div class="player__header">
-                Sachiththa A (<span class="player__symbol">X</span>)
-              </div>
-              <div class="player__score player__score--human">0</div>
-            </div>
-          </div>
-
-          <div class="score-board__item">
-            <div class="player player--computer">
-              <div class="player__header">
-                Computer (<span class="player__symbol">O</span>)
-              </div>
-              <div class="player__score player__score--computer">10</div>
-            </div>
-          </div>
+        <div class="player-form__btns">
+          <button
+            type="submit"
+            class="player-form__btn player-form__btn--submit"
+          >
+            Submit
+          </button>
+          <button
+            class="player-form__btn player-form__btn--close"
+            onclick="closeForm()"
+          >
+            Cancel
+          </button>
         </div>
-      </div>
-      <button>Restart Game</button>
-
-      <form id="scoreForm">
-        <label for="playeName">Player Name:</label>
-        <input type="text" id="playerName" required /><br /><br />
-
-        <label for="difficulty">Difficulty:</label>
-        <select id="difficulty" required>
-          <option value="">Select Difficulty</option>
-          <option value="easy">Easy</option>
-          <option value="hard">Hard</option></select
-        ><br /><br />
-
-        <button type="submit">Submit</button>
       </form>
     </main>
   </body>

@@ -9,90 +9,68 @@
 
 html {
   font-size: 62.5%;
+  height: 100%;
 }
 
 body {
   box-sizing: border-box;
   font-size: 1.6rem;
+  height: 100%;
 }
 
-.score-board {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.score-board__header {
-  font-size: 3rem;
-  font-weight: 900;
-}
-.score-board__content {
-  display: flex;
-  column-gap: 12px;
-}
-
-.player {
-  transition: 0.3s;
+.player-form {
+  border: 1px solid #000;
+  padding: 16px;
   border-radius: 5px;
-  padding: 8px;
 }
-.player__header {
-  text-align: center;
-  font-size: 2rem;
+.player-form__label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
-.player__name {
-  text-align: end;
+.player-form__input {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
-.player__score {
-  text-align: center;
-  font-weight: 700;
-  font-size: 3rem;
-}
-.player__symbol {
-  font-weight: 800;
-  font-family: "Shantell Sans", cursive;
-}
-.player--one {
+.player-form__btn {
+  display: inline-block;
+  padding: 10px 20px;
   color: #fff;
-}
-.player--two {
-  color: #000;
-}
-
-.game-board {
-  padding: 10px;
-  background-color: #ff6282;
-  border-radius: 5px;
-}
-.game-board__cell-container {
-  display: grid;
-  width: 500px;
-  height: 500px;
-  background-color: #fcb7c5;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
-  row-gap: 10px;
-  column-gap: 10px;
-}
-
-.game-board-btn {
-  font-size: 10rem;
-  background-color: #ff6282;
   border: none;
-  color: #fff;
-  font-family: "Shantell Sans", cursive;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
 }
-.game-board-btn--black-font {
-  color: #000;
+.player-form__btn--close {
+  background: #000;
 }
-
-body {
-  background: #ff6282;
+.player-form__btn--submit {
+  background-color: #ff6282;
+}
+.player-form__group {
+  margin-bottom: 15px;
+}
+.player-form__btns {
+  display: flex;
+  justify-content: center;
+  column-gap: 16px;
 }
 
 .page-content {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 100px;
+  row-gap: 100px;
+  width: 100vw;
 }
 
-/*# sourceMappingURL=main.css.map */
+.page-header {
+  font-family: "Shantell Sans", cursive;
+  font-size: 6rem;
+}

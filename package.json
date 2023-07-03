@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile:sass": "sass sass/main.scss css/main.css -w"
+    "compile:sass": "sass --no-source-map --watch 'main.scss:css/main.css' 'pages/game.page/game.page.scss:css/game.page.css'"
   },
   "keywords": [],
   "author": "",

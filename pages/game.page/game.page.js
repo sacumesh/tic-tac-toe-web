@@ -1,6 +1,5 @@
 const board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 const scores = [0, 0];
-let playerName = "Test";
 
 function getSymbol(player) {
   return player === "computer" ? "O" : "X";
@@ -26,7 +25,7 @@ function updateBoard(move, board, player) {
 }
 
 function gameOver(board) {
-  return checkTie(board) || checkTie(board);
+  return checkTie(board) || checkWin(board);
 }
 
 function getEasyComputerMove(board) {
@@ -80,7 +79,8 @@ function checkWin(board) {
     if (
       board[a] === board[b] &&
       board[b] === board[c] &&
-      ["X", "O"].includes(board[a])
+      ["X", "O"].includes(board[a]) &&
+      typeof board[a] === "string" // Ensure it's a valid value (X or O)
     ) {
       return true;
     }
@@ -103,7 +103,63 @@ function updateScore(player, scores) {
   localStorage.setItem("computerScore", scores[1]);
 }
 
-function loadScores(scores) {
+function updatePlayerNameUI(name) {
+  const elt = document.getElementById("player-name");
+  elt.textContent = name;
+}
+
+function onNewGameBtnClick() {
+  reset(board, scores);
+}
+
+function resetBoard(board) {
+  for (let i = 0; i < board.length; i++) {
+    board[i] = i;
+  }
+  updateBoardUI(board);
+}
+
+function resetScores(scores) {
+  scores[0] = scores[1] = 0;
+  localStorage.setItem("playerScore", scores[0]);
+  localStorage.setItem("computerScore", scores[1]);
+  updateScoresUI(scores);
+}
+
+function reset(board, scores) {
+  resetBoard(board);
+  resetScores(scores);
+}
+
+function onBoardBtnClick(el) {
+  if (gameOver(board)) {
+    resetBoard(board);
+    return;
+  }
+
+  const move = el.getAttribute("data-board-move");
+  if (board[move] === "X" || board[move] === "O") {
+    return;
+  }
+
+  updateBoard(move, board, "player");
+  updateBoardUI(board);
+  if (checkWin(board)) {
+    updateScore("player", scores);
+    updateScoresUI(scores);
+    return;
+  }
+
+  const computerMove = getComputerMove(board, "");
+  updateBoard(computerMove, board, "computer");
+  updateBoardUI(board);
+  if (checkWin(board)) {
+    updateScore("computer", scores);
+    updateScoresUI(scores);
+  }
+}
+
+function startGame() {
   let playerScore = localStorage.getItem("playerScore");
   if (!playerScore) {
     playerScore = 0;
@@ -118,91 +174,15 @@ function loadScores(scores) {
 
   scores[0] = parseInt(playerScore);
   scores[1] = parseInt(computerScore);
-}
 
-function updatePlayerNameUI(name) {
-  const elt = document.getElementById("player-name");
-  elt.textContent = name;
-}
-
-function loadPlayerName() {
-  playerName = localStorage.getItem("playerName") || "Test";
-}
-
-function updatePlayerName(name) {
-  playerName = name;
-  localStorage.setItem("playerName", playerName);
-}
-
-function onNewGameBtnClick() {
-  document.getElementById("player-modal").style.display = "block";
-}
-
-function handleFormSubmit(event) {
-  event.preventDefault(); // Prevent form submission
-
-  const playerNameInput = document.getElementById("playerName");
-  const difficultyRadios = document.querySelectorAll(
-    'input[name="difficulty"]:checked'
-  );
-
-  // Retrieve the values from the form
-  const playerName = playerNameInput.value;
-  const difficulty =
-    difficultyRadios.length > 0 ? difficultyRadios[0].value : "";
-
-  if (playerName.trim() === "" || difficulty === "") {
-    // Display a warning message using a browser popup
-    alert("Please fill in all fields.");
-    return; // Stop further execution
+  const playerName = localStorage.getItem("playerName");
+  if (!playerName) {
+    // redirect to main page
+    window.location.href = "../index.html";
   }
 
-  // Store the values in local storage
-  localStorage.setItem("playerName", playerName);
-  localStorage.setItem("difficulty", difficulty);
-  localStorage.setItem("playerScore", 0);
-  localStorage.setItem("computerScore", 0);
-
-  // Optionally, perform any additional actions here
-
-  // Reset the form
-  window.location.href = "./pages/game.page/game.page.html";
-  event.target.reset();
-}
-
-function onBoardBtnClick(el) {
-  const move = el.getAttribute("data-board-move");
-  if (["X", "O"].includes(board[move])) {
-    return;
-  }
-
-  updateBoard(move, board, "player");
-  updateBoardUI(board);
-  if (checkWin(board)) {
-    updateScore("player", scores);
-    updateScoresUI(scores);
-  }
-
-  updateBoard(getComputerMove(board, ""), board, "computer");
-  updateBoardUI(board);
-  if (checkWin(board)) {
-    updateScore("computer", scores);
-    updateScoresUI(scores);
-  }
-}
-
-function main() {
-  loadScores(scores);
-
-  const storedPlayerName = localStorage.getItem("playerName");
-  if (storedPlayerName) {
-    playerName = storedPlayerName;
-    updatePlayerNameUI(playerName);
-  } else {
-    onNewGameBtnClick();
-  }
-
+  updatePlayerNameUI(playerName);
   updateScoresUI(scores);
 }
 
-main();
+startGame();
