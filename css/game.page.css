@@ -57,24 +57,19 @@ body {
 .player__symbol {
   font-weight: 800;
   font-family: "Shantell Sans", cursive;
-}
-.player--human {
-  color: #fff;
-}
-.player--computer {
   color: #000;
 }
 
 .game-board {
   padding: 10px;
-  background-color: #ff6282;
+  background-color: #fff;
   border-radius: 5px;
 }
 .game-board__cell-container {
   display: grid;
   width: 500px;
   height: 500px;
-  background-color: #fcb7c5;
+  background-color: #000;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
   row-gap: 10px;
@@ -83,9 +78,9 @@ body {
 
 .game-board-btn {
   font-size: 10rem;
-  background-color: #ff6282;
+  background-color: #fff;
   border: none;
-  color: #fff;
+  color: #000;
   font-family: "Shantell Sans", cursive;
 }
 .game-board-btn--black-font {
@@ -135,7 +130,7 @@ body {
 }
 
 body {
-  background: #ff6282;
+  background: #fff;
 }
 
 .page-content {
@@ -160,5 +155,5 @@ body {
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
-  background: #000;
+  background: #ff6282;
 }

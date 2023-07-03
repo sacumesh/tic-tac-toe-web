@@ -1,13 +1,13 @@
 .game-board {
   padding: 10px;
-  background-color: $color-brink_pink;
+  background-color: $color-white;
   border-radius: 5px;
 
   &__cell-container {
     display: grid;
     width: 500px;
     height: 500px;
-    background-color: $color-chery_blossom;
+    background-color: $color-black;
 
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;

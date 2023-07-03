@@ -1,5 +1,6 @@
 const board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 const scores = [0, 0];
+let difficulty = "easy";
 
 function getSymbol(player) {
   return player === "computer" ? "O" : "X";
@@ -40,7 +41,7 @@ function getHardComputerMove(board) {
   for (let i = 0; i < 9; i++) {
     if (!["X", "O"].includes(board[i])) {
       const newBoard = [...board];
-      newBoard[i] = "X";
+      newBoard[i] = "O";
       if (checkWin(newBoard)) return i;
     }
   }
@@ -48,7 +49,7 @@ function getHardComputerMove(board) {
   for (let i = 0; i < 9; i++) {
     if (!["X", "O"].includes(board[i])) {
       const newBoard = [...board];
-      newBoard[i] = "O";
+      newBoard[i] = "X";
       if (checkWin(newBoard)) return i;
     }
   }
@@ -109,7 +110,7 @@ function updatePlayerNameUI(name) {
 }
 
 function onNewGameBtnClick() {
-  reset(board, scores);
+  window.location.href = "../../index.html";
 }
 
 function resetBoard(board) {
@@ -150,7 +151,7 @@ function onBoardBtnClick(el) {
     return;
   }
 
-  const computerMove = getComputerMove(board, "");
+  const computerMove = getComputerMove(board, difficulty);
   updateBoard(computerMove, board, "computer");
   updateBoardUI(board);
   if (checkWin(board)) {
@@ -180,6 +181,12 @@ function startGame() {
     // redirect to main page
     window.location.href = "../index.html";
   }
+
+  let storedDifficulty = localStorage.getItem("difficulty");
+  if (!storedDifficulty) {
+    storedDifficulty = "easy";
+  }
+  difficulty = storedDifficulty;
 
   updatePlayerNameUI(playerName);
   updateScoresUI(scores);
