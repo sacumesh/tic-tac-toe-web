@@ -1,6 +1,8 @@
 const board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 const scores = [0, 0];
 let difficulty = "easy";
+let player = "";
+let winCondition = [];
 
 function getSymbol(player) {
   return player === "computer" ? "O" : "X";
@@ -83,6 +85,7 @@ function checkWin(board) {
       ["X", "O"].includes(board[a]) &&
       typeof board[a] === "string" // Ensure it's a valid value (X or O)
     ) {
+      winCondition = [a, b, c];
       return true;
     }
   }
@@ -117,6 +120,12 @@ function resetBoard(board) {
   for (let i = 0; i < board.length; i++) {
     board[i] = i;
   }
+
+  const elts = document.querySelectorAll(".game-board-btn");
+
+  for (let i = 0; i < board.length; i++) {
+    elts[i].classList.remove("game-board-btn--pink-font");
+  }
   updateBoardUI(board);
 }
 
@@ -132,22 +141,43 @@ function reset(board, scores) {
   resetScores(scores);
 }
 
-function onBoardBtnClick(el) {
-  if (gameOver(board)) {
-    resetBoard(board);
-    return;
-  }
+function showWinner(player) {
+  const elts = document.querySelectorAll(".game-board-btn");
+  winCondition.forEach((i) =>
+    elts[i].classList.add("game-board-btn--pink-font")
+  );
 
+  document.querySelector(".modal").style.display = "block";
+  document.querySelector(".game-result__msg").textContent = `${player} won.`;
+}
+
+function showTie() {
+  document.querySelector(".modal").style.display = "block";
+  document.querySelector(".game-result__msg").textContent = "Its a tie.";
+}
+
+function onModalClick() {
+  document.querySelector(".modal").style.display = "none";
+  resetBoard(board);
+}
+
+function onBoardBtnClick(el) {
   const move = el.getAttribute("data-board-move");
   if (board[move] === "X" || board[move] === "O") {
     return;
   }
 
-  updateBoard(move, board, "player");
+  updateBoard(move, board, player);
   updateBoardUI(board);
   if (checkWin(board)) {
-    updateScore("player", scores);
+    updateScore(player, scores);
     updateScoresUI(scores);
+    showWinner(player);
+    return;
+  }
+
+  if (checkTie(board)) {
+    showTie();
     return;
   }
 
@@ -157,6 +187,7 @@ function onBoardBtnClick(el) {
   if (checkWin(board)) {
     updateScore("computer", scores);
     updateScoresUI(scores);
+    showWinner("Computer");
   }
 }
 
@@ -188,6 +219,7 @@ function startGame() {
   }
   difficulty = storedDifficulty;
 
+  player = playerName;
   updatePlayerNameUI(playerName);
   updateScoresUI(scores);
 }
